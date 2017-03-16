@@ -1,0 +1,58 @@
+
+#logo {
+    max-height: 100px;
+
+}
+
+div.top-navigation {
+    max-height: 100px;
+}
+
+ul.nested-categories div, ul.nested-categories {
+    float: right;
+    vertical-align: top;
+    list-style: none;
+}
+
+ul.nested-categories {
+    margin-top: 30px;
+    text-align: right;
+}
+
+ul.nested-categories li {
+    float: right;
+}
+
+ul.nested-categories li a {
+    text-decoration: none;
+    color: #074241;
+    margin-right: 20px;
+}
+
+ul.nested-categories {
+    padding-bottom: 40px;
+}
+
+div#bottom-categories {
+    display: flex;
+    justify-content: flex-end;
+}
+
+div#bottom-categories ul {
+    list-style: none;
+    border-bottom: 10px solid #7A2633;
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div#bottom-categories ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+div#bottom-categories a {
+    text-decoration: none;
+    color: #074241;
+    font-size: 1.5em;
+}

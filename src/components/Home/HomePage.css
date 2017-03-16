@@ -1,0 +1,31 @@
+
+
+.carrousel-pic {
+    width: 200px;
+    height: 200px;
+}
+
+div.slick-slider button {
+    display: inline-block!important;
+    width: 75px!important;
+    outline: none;
+    border: 1px solid #074241;;
+    text-transform: uppercase;
+    background: #7A2633;
+
+}
+
+div.slick-slider {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+div.slick-list {
+    width: 75%;
+    display: inline-block;
+}
+
+/*div.slick-track {*/
+    /*max-width: 1200px;*/
+/*}*/

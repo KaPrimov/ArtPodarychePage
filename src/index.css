@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Marck+Script');
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Marck Script", sans-serif;
+    font-size: 24px;
+    background: url("/resources/images/background2.jpg");}
+
+* {
+    margin: 0;
+    padding: 0;
+}
