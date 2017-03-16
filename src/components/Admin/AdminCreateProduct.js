@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { loadCategories } from '../../models/product'
-import observer from '../../models/observer';
 
 
 export default class CreateForm extends Component {

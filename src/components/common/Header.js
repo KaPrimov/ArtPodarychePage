@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import observer from '../../models/observer'
-import Greeting from './Greeting';
-
 import {Link} from 'react-router';
 import "../../resources/styles/header-styles.css"
 
@@ -13,7 +10,7 @@ export default class Header extends Component {
             <div>
                 <nav>
                     <div className="top-navigation">
-                        <img id="logo" src={logo} alt="logo"/>
+                        <Link to="/"><img id="logo" src={logo} alt="logo"/></Link>
                         <ul className="nested-categories">
                            <li>{this.props.children}</li>
                         </ul>

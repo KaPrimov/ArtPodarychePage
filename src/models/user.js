@@ -10,7 +10,7 @@ function saveSession(userInfo) {
     let username = userInfo.username;
     sessionStorage.setItem('username', username);
 
-    if (userInfo.access == 1) {
+    if (userInfo.access === 1) {
         sessionStorage.setItem('accessLevel', 'admin');
     }
 
@@ -68,7 +68,6 @@ function getAllUsers(callback) {
     requester.get('user', '', 'kinvey')
         .then(callback)
 }
-
 
 
 

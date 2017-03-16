@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './AdminUsers'
-import $ from 'jquery'
 import {deleteUser} from '../../models/requester';
 import CreateUser from './CreateUserPage'
 import ReactDOM from 'react-dom'

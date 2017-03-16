@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {guestLogin} from './user'
 
 const kinveyBaseUrl = "https://baas.kinvey.com/";
 const kinveyAppKey = "kid_rJ_cD2Ejg";
@@ -10,6 +11,8 @@ function makeAuth(type) {
             return {'Authorization': "Basic " + btoa(kinveyAppKey + ":" + kinveyAppSecret)};
         case 'kinvey':
             return {'Authorization': "Kinvey " + sessionStorage.getItem('authToken')};
+        case 'guestLogin':
+            return {'Authorization': "Kinvey " + "454d08c1-7c0c-4215-8bb5-171fa7a2af68.avoxcGC5V5GhPsRJw0hMLqULzCcnrCIHvHJXJ6IGAak="};
         case 'superUser':
             return {'Authorization': "Basic " + btoa(kinveyAppKey + ":75f08a9169054ee890a60d4169628b04")};
         default:

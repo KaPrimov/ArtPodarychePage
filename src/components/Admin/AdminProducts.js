@@ -15,13 +15,13 @@ export default class AdminProducts extends Component {
     editProductFunc(event){
         ReactDOM.render(
             <AdminEditPage
-            productId = {event.target.name}/>,
+            productId= {event.target.name}/>,
             document.getElementsByClassName('content-holder')[0]
         )
     }
 
     render() {
-        let properties = this.props.productsAdmin;
+        let properties= this.props.productsAdmin;
         let rows = [];
 
         for (let obj of properties) {

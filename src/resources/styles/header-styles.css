@@ -1,7 +1,7 @@
 
 #logo {
-    max-height: 100px;
-
+    max-height: 120px;
+    margin-left: 100px;
 }
 
 div.top-navigation {
@@ -41,7 +41,7 @@ div#bottom-categories {
 div#bottom-categories ul {
     list-style: none;
     border-bottom: 10px solid #7A2633;
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: flex-end;
 }
