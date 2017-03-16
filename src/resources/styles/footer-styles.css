@@ -29,3 +29,20 @@
 .footer img {
     margin: 0 50px;
 }
+
+@media all and (max-width: 531px) {
+    div.footer {
+        display: flex;
+    }
+
+    div.footer p {
+        display: block;
+        width: 100%;
+        order: 1;
+    }
+
+    div.footer img {
+        display: block;
+        order: 2;
+    }
+}

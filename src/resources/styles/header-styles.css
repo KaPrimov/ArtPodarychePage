@@ -56,3 +56,47 @@ div#bottom-categories a {
     color: #074241;
     font-size: 1.5em;
 }
+
+@media all and (max-width: 640px) {
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    nav div.top-navigation {
+        width: 100%;
+    }
+
+    nav img#logo {
+        margin: 20px 0 0 20px;
+        padding: 0;
+        max-width: 100px;
+    }
+
+    div#bottom-categories {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    div#bottom-categories ul li a {
+        font-size: 1em;
+    }
+
+    div#bottom-categories ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    div#bottom-categories ul li {
+        margin: 0;
+        display: flex;
+
+    }
+
+    div.apps-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

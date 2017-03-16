@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import {guestLogin} from './user'
 
 const kinveyBaseUrl = "https://baas.kinvey.com/";
 const kinveyAppKey = "kid_rJ_cD2Ejg";
@@ -105,8 +104,4 @@ function deleteItem(module, uri, id, auth) {
 
     return $.ajax(request);
 }
-
-
-
-
 export {get, post, update, getAllUsers, deleteUser, deleteProduct, deleteItem};

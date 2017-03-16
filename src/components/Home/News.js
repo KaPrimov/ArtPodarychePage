@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import observer from '../../models/observer'
 
 export default class News extends Component {
     render() {
