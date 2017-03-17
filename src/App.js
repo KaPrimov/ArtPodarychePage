@@ -17,7 +17,8 @@ class App extends Component {
     }
 
   componentDidMount() {
-      this.onSessionUpdate()
+      this.onSessionUpdate();
+      document.title = "Art Podaryche";
   }
 
   onSessionUpdate() {
@@ -43,6 +44,7 @@ class App extends Component {
           navbar = (
               <Navbar>
                   <Link to="/login" className="link-page">Логин</Link>
+                  <Link to="/register" className="link-page">Регистрация</Link>
                   <Link to="/cart"  className="link-page">Количка</Link>
               </Navbar>
           );

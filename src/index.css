@@ -6,6 +6,7 @@ body {
     font-size: 24px;
     background: url(resources/images/background2.jpg) center;
     background-size: cover;
+    height: 100%;
 }
 
 * {

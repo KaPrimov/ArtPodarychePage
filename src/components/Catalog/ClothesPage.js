@@ -49,7 +49,7 @@ export default class CatalogPage extends Component {
         this.state.products.forEach(function (item) {
             if(
                 item.name.toLowerCase().indexOf(queryText) !== -1 ||
-                item.price.toString().indexOf(queryText) != -1
+                item.price.toString().indexOf(queryText) !== -1
             ) {
                 products.push(item)
             }

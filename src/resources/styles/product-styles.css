@@ -71,7 +71,7 @@ div.search-plugins {
     max-width: 300px;
 }
 
-input[type=text].search-bar {
+input.search-bar {
     width: 130px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -87,6 +87,6 @@ input[type=text].search-bar {
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+input.search-bar:focus {
     width: 100%;
 }

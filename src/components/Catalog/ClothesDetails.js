@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {loadClothesDetails} from '../../models/product';
 import {addComment, loadProductsComments, deleteComment} from '../../models/comment'
-import {Link} from 'react-router';
-import Comment from '../Comment/Comments'
 import '../../resources/styles/details-styles.css';
 import observer from '../../models/observer';
 
