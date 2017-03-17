@@ -4,7 +4,9 @@ body {
     margin: 0 auto;
     font-family: "Marck Script", sans-serif;
     font-size: 24px;
-    background: url("/resources/images/background2.jpg");}
+    background: url(resources/images/background2.jpg) center;
+    background-size: cover;
+}
 
 * {
     margin: 0;

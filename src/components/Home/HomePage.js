@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './HomePage.css'
+import '../../resources/styles/HomePage.css'
 import Carousel from './Carousel'
 import Apps from './FBAppAndCalendar';
 
@@ -9,7 +9,10 @@ export default class HomePage extends Component {
 
         return (
             <div>
-                <Carousel />
+                <div className="slider-container">
+                    <Carousel />
+                </div>
+                <h1 className="section-heading">Свежи предложения</h1>
                 <Apps/>
             </div>
         );

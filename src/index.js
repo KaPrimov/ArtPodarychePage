@@ -10,7 +10,7 @@ import ClothesPage from './components/Catalog/ClothesPage'
 import JewelryPage from './components/Catalog/JewelryPage'
 import DecorationsPage from './components/Catalog/DecorationsPage'
 import AdminConsolePage from './components/Admin/AdminConsolePage'
-// import Details from './components/Catalog/Details'
+import ClothesDetails from './components/Catalog/ClothesDetails'
 import EditCommentPage from './components/Edit/EditCommentPage'
 import AdminEditPage from './components/Admin/AdminEditPage'
 import './index.css';
@@ -28,10 +28,11 @@ ReactDOM.render(
             <Route path='admin' component={AdminConsolePage}>
                 <Route path="/editProduct/:productId" component={AdminEditPage}/>
             </Route>
+            <Route path='clothes/:productId' component={ClothesDetails}/>
             <Route path='contacts' component={ContactsPage}/>
             <Route path='clothes' component={ClothesPage}/>
-            <Route path='clothes' component={JewelryPage}/>
-            <Route path='clothes' component={DecorationsPage}/>
+            <Route path='jewelry' component={JewelryPage}/>
+            <Route path='decorations' component={DecorationsPage}/>
             <Route path="edit/:commentId" component={EditCommentPage}/>
         </Route>
     </Router>,

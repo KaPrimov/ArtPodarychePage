@@ -10,8 +10,13 @@ function loadJewelry(callback) {
         .then(callback)
 }
 
-function loadProductDetails(productId, callback) {
-    get('appdata', 'products/' + productId, 'kinvey')
+function loadDecorations(callback) {
+    get('appdata', 'decorations', 'guestLogin')
+        .then(callback)
+}
+
+function loadClothesDetails(productId, callback) {
+    get('appdata', 'Clothes/' + productId, 'guestLogin')
         .then(callback);
 }
 
@@ -46,4 +51,4 @@ function editProduct(productId, name, images, tags, productype, price, quantity,
         .then(callback(true));
 }
 
-    export {loadClothes, loadJewelry, loadProductDetails, createProduct, editProduct};
+    export {loadClothes, loadJewelry, loadClothesDetails, createProduct, editProduct, loadDecorations};

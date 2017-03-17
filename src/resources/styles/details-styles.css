@@ -1,0 +1,122 @@
+.details-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 100px;
+}
+
+.titlebar {
+    text-transform: capitalize;
+}
+
+.details-box h2 {
+    display: block;
+    width: 100%;
+}
+div.details-box img {
+    max-width: 500px;
+    height: auto;
+}
+
+div.image-container {
+    margin-bottom: 40px;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+div.overview {
+    margin-top: 30px;
+    display: inline-block;
+    max-width: 40%;
+}
+
+div.description {
+    display: block;
+}
+
+div.spanner {
+    margin-left: 30px;
+}
+
+select.sizes-selector {
+    display: block;
+    width: 190px;
+    outline: none;
+    border: none;
+    padding: 5px 3px;
+    margin: 25px 30px ;
+    background: #772A32;
+    color: #FAFAFA;
+}
+
+#add-to-cart {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #772A32;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1em;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#add-to-cart span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#add-to-cart span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#add-to-cart:hover span {
+    padding-right: 25px;
+}
+
+#add-to-cart:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+@media all and (max-width: 875px) {
+
+    div.details-box {
+        width: 100%;
+    }
+
+    div.overview {
+        max-width: 100%;
+        margin-left: 10px ;
+    }
+
+    h2.titlebar {
+        text-align: center;
+        width: 100%;
+    }
+
+    div.image-container, .details-box, .sizes-selector {
+        margin-left: 0;
+    }
+
+    div.image-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 5px;
+        margin-right: 0;
+    }
+
+    div.details-box img {
+        width: auto;
+    }
+}

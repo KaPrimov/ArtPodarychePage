@@ -66,12 +66,27 @@ a {
 
 div.search-plugins {
     display: flex;
-    justify-content: center;
+    text-align: left;
+    padding-left: calc(100% - 90%);
+    max-width: 300px;
 }
 
-div.search-container {
-    width: 75%;
-    background: #7A2633;
-    display: flex;
-    justify-content: space-around;
+input[type=text].search-bar {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url(../images/search-icon.png);
+    background-size: 30px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
 }

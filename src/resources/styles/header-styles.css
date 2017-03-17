@@ -1,7 +1,8 @@
 
 #logo {
-    max-height: 120px;
-    margin-left: 100px;
+    max-height: 150px;
+    margin-left: 50px;
+    margin-top: 20px;
 }
 
 div.top-navigation {
@@ -48,13 +49,13 @@ div#bottom-categories ul {
 
 div#bottom-categories ul li {
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 60px;
 }
 
 div#bottom-categories a {
     text-decoration: none;
     color: #074241;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 @media all and (max-width: 776px) {
@@ -98,5 +99,25 @@ div#bottom-categories a {
     div.apps-wrapper {
         display: flex;
         flex-wrap: wrap;
+    }
+}
+
+@media all and (max-width: 1415px) {
+    #logo {
+        max-height: 90px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media all and (max-width: 870px) {
+    div#bottom-categories a {
+        font-size: 1.5em;
+    }    
+}
+
+@media all and (max-width: 360px) {
+    div#bottom-categories a {
+        font-size: 0.8em!important;
     }
 }

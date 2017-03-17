@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {loadProductDetails} from '../../models/product';
+import {loadClothesDetails} from '../../models/product';
 import {addComment, loadProductsComments, deleteComment} from '../../models/comment'
 import {Link} from 'react-router';
 import Comment from '../Comment/Comments'
-import './Details.css';
+import '../../resources/styles/details-styles.css';
 import observer from '../../models/observer';
 
 
@@ -15,11 +15,12 @@ export default class Details extends Component {
             name: '',
             description: '',
             quantity: '',
-            tags: [],
-            images: [],
+            sizes: [],
+            image: '',
             comments: [],
             text: '',
-            canEdit: false
+            canEdit: false,
+            price: ''
         };
 
         this.bindEventHandlers();
@@ -39,18 +40,19 @@ export default class Details extends Component {
     }
 
     componentDidMount() {
-        loadProductDetails(this.props.params.productId, this.onProductLoadSuccess);
-        loadProductsComments(this.props.params.productId, this.onCommentsLoadSuccess)
+        loadClothesDetails(this.props.params.productId, this.onProductLoadSuccess);
+        // loadProductsComments(this.props.params.productId, this.onCommentsLoadSuccess)
     }
 
     onProductLoadSuccess(response) {
         let newState = {
             _id: response._id,
             name: response.name,
-            description: response.descriptons,
+            description: response.description,
             quantity: response.quantity,
-            tags: response.tags,
-            images: response.images
+            sizes: response.size,
+            images: response.image,
+            price: response.price
         };
         if (sessionStorage.getItem('accessLevel')) {
             newState.canEdit = true;
@@ -84,15 +86,14 @@ export default class Details extends Component {
     }
 
     render() {
-
-        let title = 'Product details';
-        if (this.state.name !== '') {
-            title = this.state.name + ' details';
-        }
-
+        let    title = this.state.name + ' details';
         let properties = this.state.description;
         let arr = Array.from(properties);
         let descriptionProperties = <p className="text-info">{properties}</p>;
+        let quantity = <p className="quantity-result">Не е наличен</p>;
+        if(this.state.quantity !== 0) {
+            quantity = <p className="quantity-result">{this.state.quantity}</p>;
+        }
         if (typeof properties !== "string") {
             descriptionProperties = arr.map((element, idx) => {
                 let propertyName = Object.keys(element);
@@ -107,47 +108,23 @@ export default class Details extends Component {
         return (
             <div className="details-box">
                 <h2 className="titlebar">{title}</h2>
-                <img src={this.state.images} alt={this.state.name + ' picture'}/>
-                <div className="spanner">Description:</div>
-                {descriptionProperties}
-                <div className="spanner">Tags:</div>
-                <p className="text-info">{this.state.tags}</p>
-                <div className="spanner">Quantity:</div>
-                <p className="text-info">{this.state.quantity}</p>
-                <div className="spanner">Comments for the product:</div>
-                <ul>
-                    {this.state.comments.map((comment, index) => {
-                        let userId = sessionStorage.getItem('userId');
-                        if (sessionStorage.getItem('accessLevel')) {
-                            return (
-                                <li key={index}>{comment.text + ' posted by: ' + comment.username}
-                                    <button name={comment._id} className="btn btn-default" onClick={this.deleteComment}>
-                                        Delete
-                                    </button>
-                                    <Link to={"/edit/" + comment._id} className="btn btn-default">Edit info</Link>
-                                </li>
-                            )
-                        } else if (comment.authorId === userId) {
-                            return (
-                                <li key={index}>{comment.text + ' posted by: ' + comment.username}
-                                    <Link to={"/edit/" + comment._id} className="btn btn-default">Edit info</Link>
-                                </li>
-                            )
-                        } else {
-                            return (
-                                <li key={index}>{comment.text + ' posted by: ' + comment.username}</li>
-                            )
+                <div className="image-container"><img src={this.state.images} alt={this.state.name + ' picture'}/></div>
+                <div className="overview">
+                    <h4 className="heading">Description</h4>
+                    <div className="spanner description">{descriptionProperties}</div>
 
-                        }
-
-                    })}
-                </ul>
-                <button className="btn btn-default" id="add-to-cart" name={key} onClick={observer.addToCart}>Add to Cart
-                </button>
-                <Comment
-                    text={this.state.text}
-                    onChangeHandler={this.onChangeHandler}
-                    onSubmitHandler={this.onSubmitHandler}/>
+                    <select className="sizes-selector">
+                        {this.state.sizes.map((size, index) => {
+                            return (
+                                <option value={size} key={index}>{size}</option>
+                            )
+                        })}
+                    </select>
+                    <h4 className="heading">Quantity:</h4>
+                    <div className="spanner quantity">{quantity}</div>
+                    <button id="add-to-cart" name={key} onClick={observer.addToCart}><span>Add to Cart</span>
+                    </button>
+                </div>
 
             </div>
         )

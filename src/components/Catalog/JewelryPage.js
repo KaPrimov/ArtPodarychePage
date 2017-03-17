@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import $ from 'jquery'
 import Product from './Products';
 import SearchBar from './SearchBar'
-import {loadClothes, loadJewelry} from '../../models/product';
-import './product.css'
+import {loadJewelry} from '../../models/product';
+import '../../resources/styles/product-styles.css'
 // import {Link} from 'react-router';
 
-export default class JewelryPage extends Component {
+export default class CatalogPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,12 +24,7 @@ export default class JewelryPage extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.params.category);
-        if(this.props.params.category === 'jewelry') {
-            loadJewelry(this.onProductsLoadSuccess)
-        } else if (this.props.params.category === 'clothes') {
-            loadClothes(this.onProductsLoadSuccess)
-        }
+        loadJewelry(this.onProductsLoadSuccess)
     }
 
     onProductsLoadSuccess(response) {
@@ -54,7 +49,7 @@ export default class JewelryPage extends Component {
         this.state.products.forEach(function (item) {
             if(
                 item.name.toLowerCase().indexOf(queryText) !== -1 ||
-                item.tags.toLowerCase().indexOf(queryText) !== -1
+                item.price.toString().indexOf(queryText) != -1
             ) {
                 products.push(item)
             }
@@ -63,10 +58,12 @@ export default class JewelryPage extends Component {
 
         return (
             <div >
-                <div className="col-md-12">
+                <div className="title-container">
                     <h1 className="page-header">Каталог</h1>
                 </div>
-                <SearchBar onSearch={this.handleSearch}/>
+                <div className="search-plugins">
+                    <SearchBar onSearch={this.handleSearch}/>
+                </div>
                 <div id="content-holder">
                     {products.map((e, i) => {
                         return <Product
@@ -74,9 +71,8 @@ export default class JewelryPage extends Component {
                             name={e.name}
                             id={e._id}
                             price={e.price}
-                            tags={e.tags}
-                            uri={e.images}
-                            type={e.productype}
+                            size={e.size}
+                            uri={e.image}
                         />
                     })}
                 </div>

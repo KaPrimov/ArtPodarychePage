@@ -3,7 +3,7 @@ import $ from 'jquery'
 import Product from './Products';
 import SearchBar from './SearchBar'
 import {loadClothes} from '../../models/product';
-import './product.css'
+import '../../resources/styles/product-styles.css'
 // import {Link} from 'react-router';
 
 export default class CatalogPage extends Component {
@@ -24,8 +24,7 @@ export default class CatalogPage extends Component {
     }
 
     componentDidMount() {
-            loadClothes(this.onProductsLoadSuccess)
-
+        loadClothes(this.onProductsLoadSuccess)
     }
 
     onProductsLoadSuccess(response) {
