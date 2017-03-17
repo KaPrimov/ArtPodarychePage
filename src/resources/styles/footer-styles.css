@@ -47,6 +47,7 @@ div.footer img {
 div.footer h5 {
     border-bottom: 1px dotted #123636;
     color: #123636;
+    font-size: 1em;
 }
 
 div.footer a {

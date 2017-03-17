@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './login-styles.css';
+import '../../resources/styles/login-styles.css';
 
 export default class LoginForm extends Component {
     render() {
