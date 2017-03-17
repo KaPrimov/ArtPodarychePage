@@ -1,12 +1,12 @@
 import {get, post, update} from './requester';
 
-function loadProducts(callback) {
-    get('appdata', 'products', 'kinvey')
+function loadClothes(callback) {
+    get('appdata', 'Clothes', 'guestLogin')
         .then(callback);
 }
 
-function loadCategories(callback) {
-    get('appdata', 'productType', 'kinvey')
+function loadJewelry(callback) {
+    get('appdata', 'jewelry', 'guestLogin')
         .then(callback)
 }
 
@@ -46,4 +46,4 @@ function editProduct(productId, name, images, tags, productype, price, quantity,
         .then(callback(true));
 }
 
-    export {loadProducts, loadCategories, loadProductDetails, createProduct, editProduct};
+    export {loadClothes, loadJewelry, loadProductDetails, createProduct, editProduct};

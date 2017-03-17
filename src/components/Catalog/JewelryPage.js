@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import $ from 'jquery'
 import Product from './Products';
-import CatalogNavbar from './CatalogNavbar'
 import SearchBar from './SearchBar'
-import {loadProducts, loadCategories} from '../../models/product';
+import {loadClothes, loadJewelry} from '../../models/product';
 import './product.css'
 // import {Link} from 'react-router';
 
-export default class CatalogPage extends Component {
+export default class JewelryPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,22 +19,21 @@ export default class CatalogPage extends Component {
 
     bindEventHandlers() {
         this.onProductsLoadSuccess = this.onProductsLoadSuccess.bind(this);
-        this.onCategoriesLoadSuccess = this.onCategoriesLoadSuccess.bind(this);
         this.onClickHandler = this.onClickHandler.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
     }
 
     componentDidMount() {
-        loadProducts(this.onProductsLoadSuccess);
-        loadCategories(this.onCategoriesLoadSuccess);
+        console.log(this.props.params.category);
+        if(this.props.params.category === 'jewelry') {
+            loadJewelry(this.onProductsLoadSuccess)
+        } else if (this.props.params.category === 'clothes') {
+            loadClothes(this.onProductsLoadSuccess)
+        }
     }
 
     onProductsLoadSuccess(response) {
         this.setState({products: response})
-    }
-
-    onCategoriesLoadSuccess(response) {
-        this.setState({categories: response})
     }
 
     onClickHandler(event) {
@@ -69,9 +67,6 @@ export default class CatalogPage extends Component {
                     <h1 className="page-header">Каталог</h1>
                 </div>
                 <SearchBar onSearch={this.handleSearch}/>
-                <CatalogNavbar
-                onClickHandler={this.onClickHandler}
-                categories={this.state.categories}/>
                 <div id="content-holder">
                     {products.map((e, i) => {
                         return <Product

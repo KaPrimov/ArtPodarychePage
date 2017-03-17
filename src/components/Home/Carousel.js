@@ -11,9 +11,9 @@ export default class Carousel extends Component {
     render() {
         return (
                 <Slider>
-                    <div><img className="carrousel-pic" src={pic1}/></div>
-                    <div><img className="carrousel-pic" src={pic2}/></div>
-                    <div><img className="carrousel-pic" src={pic3}/></div>
+                    <div><img className="carrousel-pic" alt="logo" src={pic1}/></div>
+                    <div><img className="carrousel-pic" alt="logo" src={pic2}/></div>
+                    <div><img className="carrousel-pic" alt="logo" src={pic3}/></div>
                 </Slider>
                 );
             }

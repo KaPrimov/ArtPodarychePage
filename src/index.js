@@ -6,9 +6,11 @@ import ContactsPage from './components/Contacts/ContactsPage';
 import RegisterPage from './components/Register/RegisterPage';
 import LoginPage from './components/Login/LoginPage'
 import LogoutPage from './components/Logout/LogoutPage'
-import CatalogPage from './components/Catalog/CatalogPage'
+import ClothesPage from './components/Catalog/ClothesPage'
+import JewelryPage from './components/Catalog/JewelryPage'
+import DecorationsPage from './components/Catalog/DecorationsPage'
 import AdminConsolePage from './components/Admin/AdminConsolePage'
-import Details from './components/Catalog/Details'
+// import Details from './components/Catalog/Details'
 import EditCommentPage from './components/Edit/EditCommentPage'
 import AdminEditPage from './components/Admin/AdminEditPage'
 import './index.css';
@@ -27,10 +29,9 @@ ReactDOM.render(
                 <Route path="/editProduct/:productId" component={AdminEditPage}/>
             </Route>
             <Route path='contacts' component={ContactsPage}/>
-            <Route path='catalog'>
-                <IndexRoute component={CatalogPage}/>
-                <Route path=":productId" component={Details}/>
-            </Route>
+            <Route path='clothes' component={ClothesPage}/>
+            <Route path='clothes' component={JewelryPage}/>
+            <Route path='clothes' component={DecorationsPage}/>
             <Route path="edit/:commentId" component={EditCommentPage}/>
         </Route>
     </Router>,
