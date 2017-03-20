@@ -20,6 +20,11 @@ form.login, form.register {
     margin: 200px auto;
     width: 298px;
 }
+
+form.register {
+    margin: 50px auto;
+}
+
 .login h1, .register h1 {
     border-bottom: 1px solid #a6abaf;
     border-radius: 6px 6px 0 0;
