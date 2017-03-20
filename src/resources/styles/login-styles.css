@@ -1,20 +1,26 @@
 html { height: 100% }
 
-h1.page-header-login {
+h1.page-header-login, h1.page-header-register {
     text-align: center;
     margin-top: 50px;
 }
 
+.page-header-login, .page-header-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.login {
+form.login, form.register {
     background: #eceeee;
     border: 1px solid #42464b;
     border-radius: 6px;
-    height: 257px;
-    margin: 80px auto;
+    padding-bottom: 30px;
+    height: auto;
+    margin: 200px auto;
     width: 298px;
 }
-.login h1 {
+.login h1, .register h1 {
     border-bottom: 1px solid #a6abaf;
     border-radius: 6px 6px 0 0;
     box-sizing: border-box;
@@ -27,7 +33,7 @@ h1.page-header-login {
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.2), 0 1px 0 #fff;
 }
-input[type="password"], input[type="text"] {
+input[type="password"], input[type="text"], input[type='email'],input[type='number'], textarea {
     border: 1px solid #a1a3a3;
     border-radius: 4px;
     box-shadow: 0 1px #fff;
@@ -39,14 +45,8 @@ input[type="password"], input[type="text"] {
     transition: box-shadow 0.3s;
     width: 240px;
 }
-input[type="password"]:focus, input[type="text"]:focus {
+input[type="password"]:focus, input[type="text"]:focus, input[type='email'], textarea, input[type='number'] {
     box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
-}
-.show-password {
-    display: block;
-    height: 16px;
-    margin: 26px 0 0 28px;
-    width: 87px;
 }
 
 input[type="submit"] {

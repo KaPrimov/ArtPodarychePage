@@ -5,7 +5,7 @@ import Footer from './components/common/Footer';
 import Navbar from './components/common/Navbar';
 import Infobox from './components/common/Infobox'
 import Cart from './components/Cart/Cart'
-import './index.css';
+import './resources/styles/index.css';
 
 import observer from './models/observer';
 
@@ -73,7 +73,7 @@ class App extends Component {
             </Header>
               {this.props.children}
               <Footer />
-              <Infobox/>
+              {/*<Infobox/>*/}
           </div>
       )
   }

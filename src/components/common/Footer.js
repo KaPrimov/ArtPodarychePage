@@ -26,8 +26,11 @@ export default class Footer extends Component {
                         <p><Link to="\contacts">Контакти</Link></p>
                     </div>
                     <div className="something inside-category">
-                        <h5>Забравих какво е</h5>
-                        <p>Извинявай славчеееее</p>
+                        <h5>Представяне</h5>
+                        <p>Събитие</p>
+                        <p>Събитие</p>
+                        <p>Събитие</p>
+                        <p>Събитие</p>
                     </div>
                 </div>
 

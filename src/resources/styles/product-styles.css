@@ -88,5 +88,5 @@ input.search-bar {
 }
 
 input.search-bar:focus {
-    width: 100%;
+    width: 200px;
 }

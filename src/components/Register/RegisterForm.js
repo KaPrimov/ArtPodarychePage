@@ -3,96 +3,56 @@ import React, {Component} from 'react';
 export default class RegisterForm extends Component {
     render() {
         return (
-            <form onSubmit={this.props.onSubmitHandler}>
-                <div className="form-group">
-                    <label>Username:</label>
+            <form onSubmit={this.props.onSubmitHandler} className="register">
                     <input
-                        className="form-control"
                         type="text"
                         name="username"
+                        placeholder="Username"
                         value={this.props.username}
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     />
-                </div>
-                <div className="form-group">
-                    <label>E-mail:</label>
                     <input
-                        className="form-control"
                         type="email"
                         name="email"
+                        placeholder="Email"
                         value={this.props.email}
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     />
-                </div>
-                <div className="form-group">
-                    <label>Password:</label>
                     <input
-                        className="form-control"
                         type="password"
                         name="password"
+                        placeholder="Password"
                         value={this.props.password}
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     />
-                </div>
-                <div className="form-group">
-                    <label>Repeat Password:</label>
                     <input
-                        className="form-control"
                         type="password"
                         name="repeat"
                         value={this.props.repeat}
+                        placeholder="Repeat Password"
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     />
-                </div>
-                <div className="form-group">
-                    <label>First name:</label>
                     <input
-                        className="form-control"
                         type="text"
                         name="firstName"
+                        placeholder="First Name"
                         value={this.props.firstName}
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     />
-                </div>
-                <div className="form-group">
-                    <label>Last name:</label>
                     <input
-                        className="form-control"
                         type="text"
                         name="lastName"
+                        placeholder="Last Name"
                         value={this.props.lastName}
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     />
-                </div>
-
-                <div className="form-group">
-                    <label>Address:</label>
-                    <textarea
-                        className="form-control"
-                        name="address"
-                        value={this.props.address}
-                        disabled={this.props.submitDisabled}
-                        onChange={this.props.onChangeHandler}
-                    />
-                </div>
-                <div className="form-group" id="access" style={{display: 'none'}}>
-                    <label>Access Level:</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        name="access"
-                        value={this.props.access}
-                        disabled={this.props.submitDisabled}
-                        onChange={this.props.onChangeHandler}
-                    />
-                </div>
-                <input className="btn btn-default" type="submit" value="Register" disabled={this.props.submitDisabled}/>
+                <input className='register-button' type="submit" value="Register" disabled={this.props.submitDisabled}/>
             </form>
         );
     }

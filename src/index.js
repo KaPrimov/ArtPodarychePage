@@ -13,7 +13,7 @@ import AdminConsolePage from './components/Admin/AdminConsolePage'
 import ClothesDetails from './components/Catalog/ClothesDetails'
 import EditCommentPage from './components/Edit/EditCommentPage'
 import AdminEditPage from './components/Admin/AdminEditPage'
-import './index.css';
+import './resources/styles/index.css';
 import '../node_modules/slick-carousel/slick/slick.css'
 
 import {IndexRoute, Router, Route, browserHistory} from 'react-router';
