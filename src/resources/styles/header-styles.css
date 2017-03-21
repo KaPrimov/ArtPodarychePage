@@ -116,6 +116,18 @@ div#bottom-categories a {
     }    
 }
 
+@media all and (max-width: 455px) {
+    div.top-navigation li {
+        font-size: 0.6em;
+    }
+
+    img#logo {
+        max-width: 70px!important;
+        margin-left: 5px!important;
+        margin-top: 5px!important;
+    }
+}
+
 @media all and (max-width: 360px) {
     div#bottom-categories a {
         font-size: 0.8em!important;

@@ -48,9 +48,7 @@ body {
 }
 
 .slider-slide {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    top: 0;
     display: inline-block;
     list-style-type: none;
     vertical-align: top;
@@ -66,21 +64,12 @@ body {
     display: block;
     vertical-align: middle;
     padding: 0.50em;
-    margin: 0.50em;
+    margin: 0 auto;
     border: 0;
 }
 
-div.slick-slider button {
-    display: inline-block!important;
-    width: 75px!important;
-    outline: none;
-    border: 1px solid #074241;;
-    text-transform: uppercase;
-    background: #7A2633;
 
-}
-
-div.slick-slider {
+div.slick-slide {
     display: flex;
     justify-content: center;
     margin-top: 100px;
