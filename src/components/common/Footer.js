@@ -8,32 +8,24 @@ export default class Footer extends Component {
         return (
             <div className="footer">
                 <div className="left-part-footer">
-                    <div className="about-footer inside-category">
-                        <h5>Арт Подаръче</h5>
-                        <p>думи думи думи думи  думи думи думи думи думи думи думи думи думи думи думи </p>
-                    </div>
-                    <div className="product-care inside-category">
-                        <h5>Информация</h5>
-                        <Link to="\care">Грижа за пордуктите ни</Link>
-                    </div>
+                    <div className="inside-category">
+                        <h5>Art Подаръче</h5>
+                        <p>Ръчно рисувани дрешки, чанти и кецки. Авторски бижута и декорации за дома.</p>
+                    </div>                    
                 </div>
                 <div className="img-container">
                     <img src={logo} alt="logo" className="footer-logo"/>
                 </div>
                 <div className="right-part-footer">
-                    <div className="contacts inside-category">
+                    <div className="inside-category">
                         <h5>Контакти</h5>
-                        <p><Link to="\contacts">Контакти</Link></p>
-                    </div>
-                    <div className="something inside-category">
-                        <h5>Представяне</h5>
-                        <p>Събитие</p>
-                        <p>Събитие</p>
-                        <p>Събитие</p>
-                        <p>Събитие</p>
-                    </div>
+                        <p>
+                        Телефон: +359 887 806 256<br/>
+                        Email: art.podaryche@gmail.com
+                        </p>
+                    </div>                    
                 </div>
-
+                <p className="copy-mark">&copy; 2017 - Art Подаръче</p>
             </div>
         );
     }

@@ -9,6 +9,7 @@ export default class HomePage extends Component {
 
         return (
             <div>
+                <h1 className="home-main-header">Ръчно изработени изкушения</h1>
                 <div className="slider-container">
                     <Carousel />
                 </div>

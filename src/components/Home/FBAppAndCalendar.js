@@ -27,7 +27,10 @@ export default class Apps extends Component {
 
     render() {
         let news = [];
-        this.state.news.forEach(function (item) {
+        this.state.news.sort(function(x, y) {
+            return ((x._id < y._id) ? 1 : ((x._id > y._id) ? -1 : 0));
+        })
+        .slice(0, 3).forEach(function (item) {
             news.push(item);
         });
         return (
@@ -44,7 +47,7 @@ export default class Apps extends Component {
                                     return <News
                                         key={i}
                                         title={e.title}
-                                        detetime={e.time}
+                                        time={e.time}
                                         venue={e.place}
                                     />
                                 })

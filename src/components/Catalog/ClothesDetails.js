@@ -84,7 +84,6 @@ export default class Details extends Component {
     }
 
     render() {
-        let    title = this.state.name + ' details';
         let properties = this.state.description;
         let arr = Array.from(properties);
         let descriptionProperties = <p className="text-info">{properties}</p>;
@@ -105,10 +104,10 @@ export default class Details extends Component {
 
         return (
             <div className="details-box">
-                <h2 className="titlebar">{title}</h2>
+                <h2 className="titlebar">{this.state.name}</h2>
                 <div className="image-container"><img src={this.state.images} alt={this.state.name + ' picture'}/></div>
                 <div className="overview">
-                    <h4 className="heading">Description</h4>
+                    <h4 className="heading">Описание</h4>
                     <div className="spanner description">{descriptionProperties}</div>
 
                     <select className="sizes-selector">
@@ -118,7 +117,7 @@ export default class Details extends Component {
                             )
                         })}
                     </select>
-                    <h4 className="heading">Quantity:</h4>
+                    <h4 className="heading">Количество:</h4>
                     <div className="spanner quantity">{quantity}</div>
                     <button id="add-to-cart" name={key} onClick={observer.addToCart}><span>Add to Cart</span>
                     </button>

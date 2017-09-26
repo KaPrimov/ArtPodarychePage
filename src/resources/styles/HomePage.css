@@ -16,7 +16,7 @@ body {
     /*max-height: 600px;*/
     box-sizing: border-box;
     visibility: hidden;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .slider-container {
@@ -82,8 +82,9 @@ div.slick-list {
 
 .section-heading {
     text-align: center;
-    margin: 60px 0 15px 0;
+    margin: 40px 0 15px 0;
     color: #123636;
+    font-weight: 100;
 }
 
 div.apps-wrapper {
@@ -102,6 +103,7 @@ div.news {
 
 div.news h1 {
    border-bottom: 2px solid #7A2633;
+   font-weight: 100;
 }
 
 div.news-wrapper {
@@ -111,4 +113,38 @@ div.news-wrapper {
 div.news-wrapper p, div.news-wrapper h4 {
     font-size: 1.3em;
     margin-top: 10px;
+}
+
+h1.home-main-header {
+    text-align: center;
+    color: #123636;
+    margin-top: 30px;
+    font-weight: 100;
+}
+
+.news-datetime {
+    border-bottom: 1px solid #801534; 
+}
+
+@media all and (max-width: 575px) {
+    h1.home-main-header {
+        font-size: 36px;
+    }
+
+    h1.section-heading {
+        font-size: 36px;
+        margin: 15px 0 15px 0;
+    }
+
+    div.news h1 {
+        font-size: 36px;
+    }
+
+    div.news h4.single-new-title {
+        font-size: 26px;
+    }
+
+    div.news-wrapper p {
+        font-size: 1.1em;
+    }
 }

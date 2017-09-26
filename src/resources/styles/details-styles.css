@@ -6,6 +6,8 @@
 
 .titlebar {
     text-transform: capitalize;
+    font-weight: 100;
+    border-bottom: 1px solid #801534;
 }
 
 .details-box h2 {
