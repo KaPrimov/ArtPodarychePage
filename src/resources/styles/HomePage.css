@@ -4,7 +4,7 @@ body {
     margin: 0 auto;
     font-family: "Marck Script", sans-serif;
     font-size: 24px;
-    background: url(../images/background2.jpg) center;
+    background: url(../images/background.jpg) center;
     background-size: cover;
 }
 
@@ -124,6 +124,13 @@ h1.home-main-header {
 
 .news-datetime {
     border-bottom: 1px solid #801534; 
+}
+
+h1.page-header {
+    color: #123636;
+    text-align: center;
+    font-weight: 100;
+    margin-top: 20px 
 }
 
 @media all and (max-width: 575px) {

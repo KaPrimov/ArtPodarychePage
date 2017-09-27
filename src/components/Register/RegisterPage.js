@@ -55,7 +55,7 @@ export default class RegisterPage extends Component {
     render() {
         return (
             <div>
-                <h1 className="page-header-register">Register here</h1>
+                <h1 className="page-header">Регистрация</h1>
                 <RegisterForm
                     username={this.state.username}
                     email={this.state.email}

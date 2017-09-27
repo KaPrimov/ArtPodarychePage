@@ -12,7 +12,6 @@ export default class LoginPage extends Component {
     }
 
     bindEventHandlers() {
-        // Make sure event handlers have the correct context
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
         this.onSubmitResponse = this.onSubmitResponse.bind(this);
@@ -52,7 +51,7 @@ export default class LoginPage extends Component {
     render() {
         return (
             <div>
-                <h1 className="page-header-login">Login</h1>
+                <h1 className="page-header">Логин</h1>
                 <LoginForm
                     username={this.state.username}
                     password={this.state.password}
