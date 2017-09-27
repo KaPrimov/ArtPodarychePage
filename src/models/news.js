@@ -5,4 +5,9 @@ function loadNews(callback) {
         .then(callback);
 }
 
-export {loadNews};
+function loadCustomerOrders(callback) {
+    get('appdata', 'customersOrders', 'guestLogin')
+        .then(callback);
+}
+
+export {loadNews, loadCustomerOrders};

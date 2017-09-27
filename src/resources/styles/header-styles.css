@@ -58,6 +58,10 @@ div#bottom-categories a {
     font-size: 2em;
 }
 
+a.link-page:hover {
+    opacity: 0.8;
+}
+
 @media all and (max-width: 776px) {
 
     nav {

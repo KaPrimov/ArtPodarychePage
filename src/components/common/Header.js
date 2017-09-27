@@ -17,9 +17,9 @@ export default class Header extends Component {
                     </div>
                     <div id="bottom-categories">
                         <ul>
-                            <li><Link to="/clothes">Текстил</Link></li>
-                            <li><Link to="/jewelry">Бижута</Link></li>
-                            <li><Link to="/decorations">Декорации</Link></li>
+                            <li><Link className="link-page" to="/clothes">Текстил</Link></li>
+                            <li><Link className="link-page" to="/jewelry">Бижута</Link></li>
+                            <li><Link className="link-page" to="/decorations">Декорации</Link></li>
                         </ul>
                     </div>
                 </nav>

@@ -90,6 +90,10 @@ select.sizes-selector {
     right: 0;
 }
 
+div.overview, h2.titlebar {
+    color: #053533;
+}
+
 @media all and (max-width: 875px) {
 
     div.details-box {

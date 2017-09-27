@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
 import logo from "../../resources/images/footer-logo.png"
 import "../../resources/styles/footer-styles.css"
 

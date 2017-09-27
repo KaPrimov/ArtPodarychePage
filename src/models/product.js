@@ -11,12 +11,22 @@ function loadJewelry(callback) {
 }
 
 function loadDecorations(callback) {
-    get('appdata', 'decorations', 'guestLogin')
+    get('appdata', 'Decorations', 'guestLogin')
         .then(callback)
 }
 
 function loadClothesDetails(productId, callback) {
     get('appdata', 'Clothes/' + productId, 'guestLogin')
+        .then(callback);
+}
+
+function loadJewelryDetails(productId, callback) {
+    get('appdata', 'jewelry/' + productId, 'guestLogin')
+        .then(callback);
+}
+
+function loadDecorationsDetails(productId, callback) {
+    get('appdata', 'Decorations/' + productId, 'guestLogin')
         .then(callback);
 }
 
@@ -51,4 +61,5 @@ function editProduct(productId, name, images, tags, productype, price, quantity,
         .then(callback(true));
 }
 
-    export {loadClothes, loadJewelry, loadClothesDetails, createProduct, editProduct, loadDecorations};
+    export {loadClothes, loadJewelry, loadClothesDetails, createProduct, 
+        editProduct, loadDecorations, loadJewelryDetails, loadDecorationsDetails};

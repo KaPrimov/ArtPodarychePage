@@ -11,6 +11,8 @@ import JewelryPage from './components/Catalog/JewelryPage'
 import DecorationsPage from './components/Catalog/DecorationsPage'
 import AdminConsolePage from './components/Admin/AdminConsolePage'
 import ClothesDetails from './components/Catalog/ClothesDetails'
+import JewelryDetails from './components/Catalog/JewelryDetails'
+import DecorationsDetails from './components/Catalog/DecorationsDetails'
 import EditCommentPage from './components/Edit/EditCommentPage'
 import AdminEditPage from './components/Admin/AdminEditPage'
 import './resources/styles/index.css';
@@ -29,6 +31,8 @@ ReactDOM.render(
                 <Route path="/editProduct/:productId" component={AdminEditPage}/>
             </Route>
             <Route path='clothes/:productId' component={ClothesDetails}/>
+            <Route path='jewelry/:productId' component={JewelryDetails}/>
+            <Route path='decorations/:productId' component={DecorationsDetails}/>
             <Route path='contacts' component={ContactsPage}/>
             <Route path='clothes' component={ClothesPage}/>
             <Route path='jewelry' component={JewelryPage}/>

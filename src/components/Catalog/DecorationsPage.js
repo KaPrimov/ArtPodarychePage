@@ -71,8 +71,8 @@ export default class CatalogPage extends Component {
                             name={e.name}
                             id={e._id}
                             price={e.price}
-                            size={e.size}
                             uri={e.image}
+                            category="decorations"
                         />
                     })}
                 </div>

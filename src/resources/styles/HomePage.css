@@ -133,6 +133,34 @@ h1.page-header {
     margin-top: 20px 
 }
 
+div.orders {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+div.single-order {
+    display: inline-block;
+    align-content: center;
+}
+
+div.single-order img {
+    max-width: 350px;
+    max-height: 220px;
+}
+@media all and (max-width: 695px) { 
+    div.news {
+        margin-top: 30px;
+    }
+    div.apps-wrapper {
+        margin-top: 30px;
+    }
+}
 @media all and (max-width: 575px) {
     h1.home-main-header {
         font-size: 36px;

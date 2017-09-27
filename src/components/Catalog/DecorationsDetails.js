@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {loadClothesDetails} from '../../models/product';
+import {loadDecorationsDetails} from '../../models/product';
 import {addComment, loadProductsComments, deleteComment} from '../../models/comment'
 import '../../resources/styles/details-styles.css';
 import observer from '../../models/observer';
@@ -13,7 +13,6 @@ export default class Details extends Component {
             name: '',
             description: '',
             quantity: '',
-            sizes: [],
             image: '',
             comments: [],
             text: '',
@@ -38,7 +37,7 @@ export default class Details extends Component {
     }
 
     componentDidMount() {
-        loadClothesDetails(this.props.params.productId, this.onProductLoadSuccess);
+        loadDecorationsDetails(this.props.params.productId, this.onProductLoadSuccess);
         // loadProductsComments(this.props.params.productId, this.onCommentsLoadSuccess)
     }
 
@@ -48,8 +47,7 @@ export default class Details extends Component {
             name: response.name,
             description: response.description,
             quantity: response.quantity,
-            sizes: response.size,
-            images: response.image,
+            image: response.image,
             price: response.price
         };
         if (sessionStorage.getItem('accessLevel')) {
@@ -105,18 +103,10 @@ export default class Details extends Component {
         return (
             <div className="details-box">
                 <h2 className="titlebar">{this.state.name}</h2>
-                <div className="image-container"><img src={this.state.images} alt={this.state.name + ' picture'}/></div>
+                <div className="image-container"><img src={this.state.image} alt={this.state.name + ' picture'}/></div>
                 <div className="overview">
                     <h4 className="heading">Описание</h4>
                     <div className="spanner description">{descriptionProperties}</div>
-
-                    <select className="sizes-selector">
-                        {this.state.sizes.map((size, index) => {
-                            return (
-                                <option value={size} key={index}>{size}</option>
-                            )
-                        })}
-                    </select>
                     <h4 className="heading">Количество:</h4>
                     <div className="spanner quantity">{quantity}</div>
                     <h4 className="heading">Цена:</h4>
