@@ -12,7 +12,7 @@ import observer from './models/observer';
 class App extends Component {
     constructor(props){
         super(props);
-        this.state = {loggedIn: false, username: '', admin: false, cart: []};
+        this.state = { username: '', admin: false, cart: []};
         observer.onSessionUpdate = this.onSessionUpdate.bind(this);
     }
 
@@ -21,13 +21,7 @@ class App extends Component {
       document.title = "Art Podaryche";
   }
 
-  onSessionUpdate() {
-      let name = sessionStorage.getItem('username');
-      if(name){
-          this.setState({ loggedIn: true, username: sessionStorage.getItem("username") });
-      } else {
-          this.setState({ loggedIn: false, username: '' });
-      }
+  onSessionUpdate() {      
       let adminLevel = sessionStorage.getItem('accessLevel');
       if(adminLevel) {
           this.setState({admin: true})
@@ -40,27 +34,19 @@ class App extends Component {
 
   render() {
       let navbar = {};
-      if (!this.state.loggedIn) {
+      if(this.state.admin){
           navbar = (
               <Navbar>
-                  <Link to="/login" className="link-page">Логин</Link>
-                  <Link to="/register" className="link-page">Регистрация</Link>
+                  <Link to="/admin" className="link-page">Администратор</Link>
                   <Link to="/cart"  className="link-page">Количка</Link>
-              </Navbar>
-          );
-      } else if(this.state.admin){
-          navbar = (
-              <Navbar>
-                  <Link to="/logout" className="link-page">Отписване</Link>
-                  <Link to="/cart"  className="link-page">Количка</Link>
-                  <Link to="/admin"  className="link-page">Admin</Link>
+                  <Link to="/faq"  className="link-page">FAQ</Link>
               </Navbar>
           );
       } else {
           navbar = (
               <Navbar>
-                  <Link to="/logout" className="link-page">Отписване</Link>
                   <Link to="/cart"  className="link-page">Количка</Link>
+                  <Link to="/faq"  className="link-page">FAQ</Link>
               </Navbar>
           );
       }

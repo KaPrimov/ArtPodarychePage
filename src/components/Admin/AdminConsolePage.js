@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import './AdminConsole.css'
 import AdminConsoleSideBar from './AdminConsoleSideBar'
 import AdminPanel from './AdminPanel'
-import Users from './AdminUsers'
 import AdminProducts from './AdminProducts'
 import {getAllUsers} from '../../models/user';
 import {loadProducts } from '../../models/product'
@@ -44,20 +43,7 @@ export default class AdminConsole extends Component {
         this.setState({allProducts: response})
     }
 
-    showUsersView() {
-        ReactDOM.render(
-            <Users users={this.state.allUsers}/>,
-            document.getElementsByClassName('content-holder')[0]
-        )
-    }
-
-    showProductsView() {
-        ReactDOM.render(
-            <AdminProducts productsAdmin={this.state.allProducts}/>,
-            document.getElementsByClassName('content-holder')[0]
-        )
-    }
-
+    
 
     render() {
 

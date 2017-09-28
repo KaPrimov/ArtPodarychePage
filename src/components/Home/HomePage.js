@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../../resources/styles/HomePage.css'
+import '../../resources/styles/home-page.css'
 import Carousel from './Carousel'
 import Apps from './FBAppAndCalendar';
 import CustomerOrders from './CustomersOrders'

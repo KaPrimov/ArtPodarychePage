@@ -107,7 +107,7 @@ a.link-page:hover {
 }
 
 @media all and (max-width: 1415px) {
-    #logo {
+    img#logo {
         max-height: 90px;
         margin-top: 20px;
         margin-left: 20px;

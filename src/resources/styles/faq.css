@@ -1,0 +1,62 @@
+div.faq-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    color: #004543;
+}
+
+h1.faq-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 100;
+}
+
+div.information-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.information-wrapper h2 {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+div.information-wrapper article {
+    box-sizing: border-box;
+    width: 47%;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #801534;
+    margin-right: 20px;
+}
+
+div.information-wrapper article p {
+    text-align: justify;
+}
+
+article.sneakers {
+    width: 100%;
+    text-align: center;
+}
+
+
+article.sneakers h3 {
+    margin-bottom: 10px;
+}
+
+@media all and (max-width: 721px) {
+    div.information-wrapper article {
+        box-sizing: border-box;
+        width: 100%;
+        margin-right: 0px;
+    }
+}
+
+@media all and (max-width: 595px) { 
+    iframe.faq-video {
+        width: 320px;
+         
+    }
+}
