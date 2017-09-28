@@ -11,6 +11,7 @@ import ClothesDetails from './components/Catalog/ClothesDetails'
 import JewelryDetails from './components/Catalog/JewelryDetails'
 import DecorationsDetails from './components/Catalog/DecorationsDetails'
 import EditCommentPage from './components/Edit/EditCommentPage'
+import SearchResultPage from './components/Search/SearchResultPage'
 import AdminEditPage from './components/Admin/AdminEditPage'
 import FaqPage from './components/FAQ/FAQ'
 import './resources/styles/index.css';
@@ -34,6 +35,7 @@ ReactDOM.render(
             <Route path='decorations' component={DecorationsPage}/>
             <Route path="edit/:commentId" component={EditCommentPage}/>
             <Route path="faq" component={FaqPage}/>
+            <Route path="search-results" component={SearchResultPage}/>
         </Route>
     </Router>,
     document.getElementById('root')

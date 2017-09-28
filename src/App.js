@@ -38,15 +38,15 @@ class App extends Component {
           navbar = (
               <Navbar>
                   <Link to="/admin" className="link-page">Администратор</Link>
-                  <Link to="/cart"  className="link-page">Количка</Link>
                   <Link to="/faq"  className="link-page">FAQ</Link>
+                  <Link to="/cart"  className="link-page">Количка</Link>
               </Navbar>
           );
       } else {
           navbar = (
               <Navbar>
-                  <Link to="/cart"  className="link-page">Количка</Link>
                   <Link to="/faq"  className="link-page">FAQ</Link>
+                  <Link to="/cart"  className="link-page">Количка</Link>
               </Navbar>
           );
       }

@@ -18,7 +18,6 @@ export default class CatalogPage extends Component {
 
     componentDidMount() {
         loadCustomerOrders(this.onProductLoadSuccess);
-        // loadProductsComments(this.props.params.productId, this.onCommentsLoadSuccess)
     }
 
     onProductLoadSuccess(response) {
@@ -28,7 +27,6 @@ export default class CatalogPage extends Component {
 
     render() {
         let products = [];
-        console.log(Object.keys(this.state.orders))
         return (
             <div className="orders">
                 {Object.keys(this.state.orders).map((e, i) => {

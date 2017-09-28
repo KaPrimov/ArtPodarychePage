@@ -1,4 +1,4 @@
-import {FBPage} from 'facebook-plugins';
+/*global FB*/
 import React, {Component} from 'react';
 import {loadNews} from '../../models/news'
 import News from './News'
@@ -9,6 +9,7 @@ export default class Apps extends Component {
         this.state = {
             news: []
         };
+        
         this.bindEventHandlers();
     }
 
@@ -17,7 +18,22 @@ export default class Apps extends Component {
     }
 
     componentDidMount() {
-        loadNews(this.onNewsLoadSuccess);
+        loadNews(this.onNewsLoadSuccess);        
+        window.fbAsyncInit = function () {
+            window.FB.init({
+                appId: '415316255491800',
+                xfbml: false,
+                version: 'v2.1'
+            });
+            document.dispatchEvent(new Event('fb_init'));
+        };(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=415316255491800";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        window.FB.XFBML.parse();
     }
 
     onNewsLoadSuccess(response) {
@@ -36,9 +52,12 @@ export default class Apps extends Component {
         return (
             <div>
                 <div className="apps-wrapper">
-                <FBPage appId="415316255491800"
-                        href="https://www.facebook.com/Art.Podaryche/"
-                        tabs={['timeline', 'events', 'messages']}/>
+                <div className="fb-page" 
+                data-href="https://www.facebook.com/Art.Podaryche"
+                data-width="380" 
+                data-hide-cover="false"
+                data-show-facepile="true"
+                data-tabs='timeline,events,messages'></div>
                     <div className="news">
                         <h1>Новини</h1>
                         <div className="news-content-holder">
