@@ -5,6 +5,7 @@
   "devDependencies": {
     "babel-preset-env": "^1.2.0",
     "nuka-carousel": "^2.0.3",
+    "prop-types": "^15.6.0",
     "react-scripts": "0.9.3"
   },
   "dependencies": {
