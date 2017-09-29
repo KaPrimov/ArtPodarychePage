@@ -16,7 +16,7 @@ class Navbar extends Component {
     onSubmitHandler(event) {
         event.preventDefault();
         this.props.router.push({
-            pathname: "/search-results",
+            pathname: "/search",
             state: {query: document.getElementsByClassName('input-search')[0].value}  
         })
         window.location.reload()

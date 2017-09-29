@@ -36,7 +36,7 @@ ReactDOM.render(
             <Route path='decorations' component={DecorationsPage}/>
             <Route path="edit/:commentId" component={EditCommentPage}/>
             <Route path="faq" component={FaqPage}/>
-            <Route path="search-results" component={SearchResultPage}/>
+            <Route path="search" component={SearchResultPage}/>
         </Route>
     </Router>,
     document.getElementById('root')
