@@ -106,7 +106,8 @@ function deleteItem(module, uri, id, auth) {
 }
 
 function getMatchingProducts(module, uri, auth, regex) {
-    const kinveyLoginUrl = kinveyBaseUrl + module + "/" + kinveyAppKey + "/" + uri + `?query={"name":{"$regex":"^.*${regex}.*"}}`;
+    const kinveyLoginUrl = kinveyBaseUrl + module + "/" + kinveyAppKey + "/" +
+        uri + `?query={"name":{"$regex":"^.*${regex}.*"}}`;
     const kinveyAuthHeaders = makeAuth(auth);
 
     return $.ajax({

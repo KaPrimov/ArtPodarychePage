@@ -142,6 +142,24 @@ a.link-page:hover {
     }
 }
 
+div.no-search-results {
+    justify-content: center;
+    text-align: center
+}
+
+div.no-search-results img {
+    max-width:100%;
+    height: auto;
+    display: block;
+}
+
+div.no-search-results h2 {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    color: #7A2633;
+}
+
 @media all and (max-width: 1415px) {
     img#logo {
         max-height: 90px;

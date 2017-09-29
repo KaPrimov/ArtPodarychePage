@@ -62,6 +62,7 @@ a {
     text-decoration: none;
     color: #7A2633;
     border: none;
+    text-transform: capitalize
 }
 
 div.search-plugins {
