@@ -39,7 +39,7 @@ export default class CatalogPage extends Component {
 
     handleSearch(text) {
         this.setState({
-            queryText: text
+            queryText: text.trim()
         })
     }
 

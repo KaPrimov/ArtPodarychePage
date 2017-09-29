@@ -160,6 +160,16 @@ div.no-search-results h2 {
     color: #7A2633;
 }
 
+button.link-page {
+    color: #053533;
+    margin-right: 15px;
+}
+
+button.link-page:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 @media all and (max-width: 1415px) {
     img#logo {
         max-height: 90px;
@@ -175,8 +185,9 @@ div.no-search-results h2 {
 }
 
 @media all and (max-width: 510px) {
-    .search-input {
+    .input-search {
         display: block;
+        width: 120px!important;
     }
 }
 

@@ -50,6 +50,11 @@ select.sizes-selector {
     color: #FAFAFA;
 }
 
+div.image-container img {
+    max-width: 500px;
+    height: auto;
+}
+
 #add-to-cart {
     display: inline-block;
     border-radius: 4px;
@@ -115,14 +120,16 @@ div.overview, h2.titlebar {
     }
 
     div.image-container {
-        display: flex;
-        width: 100%;
-        justify-content: center;
         margin-bottom: 5px;
         margin-right: 0;
-    }
+        width: 100%;
+        justify-content: center;
+        padding: 5px;
+    }    
 
     div.details-box img {
-        width: auto;
+        width: 100%;
+        height: auto;
+        max-width: none;
     }
 }

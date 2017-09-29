@@ -103,7 +103,9 @@ export default class Details extends Component {
         return (
             <div className="details-box">
                 <h2 className="titlebar">{this.state.name}</h2>
-                <div className="image-container"><img src={this.state.image} alt={this.state.name + ' picture'}/></div>
+                <div className="image-container">
+                    <img  src={this.state.image} alt={this.state.name + ' picture'}/>
+                </div>
                 <div className="overview">
                     <h4 className="heading">Описание</h4>
                     <div className="spanner description">{descriptionProperties}</div>
@@ -111,7 +113,7 @@ export default class Details extends Component {
                     <div className="spanner quantity">{quantity}</div>
                     <h4 className="heading">Цена:</h4>
                     <div className="spanner quantity">{this.state.price} лв.</div>
-                    <button id="add-to-cart" name={key} onClick={observer.addToCart}><span>Add to Cart</span>
+                    <button id="add-to-cart" name={key} onClick={observer.addToCart} datatype='jewelry'><span name={key} datatype='jewelry'>Add to Cart</span>
                     </button>
                 </div>
 

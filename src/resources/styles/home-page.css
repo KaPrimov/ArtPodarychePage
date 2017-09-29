@@ -147,6 +147,14 @@ div.orders {
     flex-wrap: wrap;
 }
 
+div.orders p {
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+div.orders div.single-order:last-child p {
+    margin-bottom: 0px!important;
+}
 
 div.single-order {
     display: inline-block;

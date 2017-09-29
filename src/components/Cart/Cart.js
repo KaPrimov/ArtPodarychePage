@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {get} from '../../models/requester';
-import './Cart.css'
+import React, { Component } from 'react';
+import { loadProductDetails } from '../../models/product';
+import '../../resources/styles/cart.css'
 import observer from '../../models/observer';
 
 export default class Cart extends Component {
@@ -8,7 +8,8 @@ export default class Cart extends Component {
         super(props);
         this.state = {
             visible: false,
-            activeCart: []
+            activeCart: [],
+            size: ''
         };
         this.bindEventHandlers();
         // Register in the observer
@@ -18,34 +19,36 @@ export default class Cart extends Component {
 
     toggle(event) {
         let isVisible = this.state.visible;
-        if (isVisible)this.setState({visible: false});
-        else this.setState({visible: true})
-    }
-
-
-    loadProductDetails(productId, callback) {
-        get('appdata', 'products/' + productId, 'kinvey')
-            .then(callback);
+        if (isVisible) this.setState({ visible: false });
+        else this.setState({ visible: true })
     }
 
     addDetailsToCart(product) {
         let cart = this.state.activeCart;
         let _id = product._id;
         let data = product;
-        let indexOfProduct = cart.findIndex(x=>x[_id] !== undefined);
-        if (indexOfProduct > -1)cart[indexOfProduct][_id].cartQuantity++;
+        product.size = this.state.size;
+        let indexOfProduct = cart.findIndex(x => x[_id] !== undefined);
+        if (indexOfProduct > -1) cart[indexOfProduct][_id].cartQuantity++;
         else {
             data.cartQuantity = 1;
-            cart.push({[_id]: data});
+            cart.push({ [_id]: data });
         }
-        this.setState({activeCart: cart});
+        this.setState({ activeCart: cart });
     }
 
     addToCart(event) {
         event.preventDefault();
-        let productId = event.target.name;
-        this.loadProductDetails(productId, this.addDetailsToCart);
-        observer.showSuccess('Product was added!')
+        let productId = event.target.getAttribute('name');
+        let productType = event.target.getAttribute('datatype')
+        let select = document.getElementsByClassName('sizes-selector')[0];
+        if (select !== undefined) {
+            this.setState({ size: select.options[select.selectedIndex].value })
+        } else {
+            this.setState({size: 'One Size'})
+        }
+        loadProductDetails(productId, productType, this.addDetailsToCart);
+        // observer.showSuccess('Product was added!')
     }
 
 
@@ -56,30 +59,28 @@ export default class Cart extends Component {
         this.addDetailsToCart = this.addDetailsToCart.bind(this);
     }
 
-
-
     increase(event) {
         let key = event.target.name;
         let cart = this.state.activeCart;
-        let indexOfProduct = cart.findIndex(x=>x[key] !== undefined);
+        let indexOfProduct = cart.findIndex(x => x[key] !== undefined);
         let quantityBeforeClick = cart[indexOfProduct][key].cartQuantity;
         let quantityInWarehouse = cart[indexOfProduct][key].quantity;
         quantityBeforeClick++;
-        if (quantityBeforeClick > quantityInWarehouse)return;
+        if (quantityBeforeClick > quantityInWarehouse) return;
         cart[indexOfProduct][key].cartQuantity = quantityBeforeClick;
-        this.setState({activeCart: cart});
+        this.setState({ activeCart: cart });
     }
 
     decrease(event) {
         let key = event.target.name;
         let cart = this.state.activeCart;
-        let indexOfProduct = cart.findIndex(x=>x[key] !== undefined);
+        let indexOfProduct = cart.findIndex(x => x[key] !== undefined);
         let quantityBeforeClick = cart[indexOfProduct][key].cartQuantity;
         quantityBeforeClick--;
         if (quantityBeforeClick === 0)
             cart.splice(indexOfProduct, 1);
         else cart[indexOfProduct][key].cartQuantity = quantityBeforeClick;
-        this.setState({activeCart: cart});
+        this.setState({ activeCart: cart });
     }
 
 
@@ -95,58 +96,41 @@ export default class Cart extends Component {
             price += product[key].price * product[key].cartQuantity;
             rows.push(
                 <tr key={key}>
-                    <td>{product[key]._id}</td>
-                    <td>{product[key].name}</td>
-                    <td><img className="img-thumbnail" src={product[key].images} alt="product"></img></td>
-                    <td>{product[key].price}</td>
+                    <td>{product[key].name[0].toUpperCase() + product[key].name.substring(1)}</td>
+                    <td><img className="img-cart" src={product[key].image} alt="product"></img></td>
+                    <td>{product[key].price}</td>                    
                     <td>{product[key].cartQuantity}</td>
                     <td>
-                        <a className="btn btn-danger glyphicon glyphicon-minus" name={key}
-                           onClick={this.decrease}></a>
-                        <a className="btn btn-info glyphicon glyphicon-plus" name={key}
-                           onClick={this.increase}></a>
-                    </td>
+                        {product[key].size}
+                    </td>                 
                 </tr>)
         }
 
 
         return (
-            <div>
-                <h2>Products in cart</h2>
+            <div className='cart-wrapper'>
+                <h2 className='cart-header'>Какво си харесахте:</h2>
 
-                <table className="table table-striped">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th width="40%" id="name">Име</th>
+                            <th width="10%" id="image-url">Снимка</th>
+                            <th width="20%" id="price">Цена</th>
+                            <th width="10%" id="quantity">Количество</th>
+                            <th width="20%" id="actions">Размер</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                    <tr>
-                        <th width="20%" id="id">#</th>
-                        <th width="15%" id="name">Name</th>
-                        <th width="15%" id="imageUrl">Image</th>
-                        <th width="20%" id="price">Price</th>
-                        <th width="10%" id="quantity">Quantity</th>
-                        <th width="20%" id="actions">Actions</th>
-                    </tr>
-                    {rows}
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>Price:</td>
-                        <td>{price}</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a className="checkout btn btn-info glyphicon glyphicon-shopping-cart"
-                               onClick=''> Check Out</a>
-                        </td>
-                    </tr>
+                        {rows}                        
                     </tbody>
-
-
                 </table>
+                <div className='cart-data'>
+                    <p className='cart-price'>Цена: {price}</p>
+                    <a className='button'>
+                        <span>Купете</span>
+                    </a>
+                </div>
             </div>
         )
     }

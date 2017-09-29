@@ -39,14 +39,14 @@ class App extends Component {
               <Navbar>
                   <Link to="/admin" className="link-page">Администратор</Link>
                   <Link to="/faq"  className="link-page">FAQ</Link>
-                  <Link to="/cart"  className="link-page">Количка</Link>
+                  <button onClick={observer.toggle} className="link-page">Количка</button>
               </Navbar>
           );
       } else {
           navbar = (
               <Navbar>
                   <Link to="/faq"  className="link-page">FAQ</Link>
-                  <Link to="/cart"  className="link-page">Количка</Link>
+                  <button onClick={observer.toggle} className="link-page">Количка</button>
               </Navbar>
           );
       }
