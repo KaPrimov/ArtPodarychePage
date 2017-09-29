@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+require('create-react-class');
 import HomePage from './components/Home/HomePage';
 import ContactsPage from './components/Contacts/ContactsPage';
 import ClothesPage from './components/Catalog/ClothesPage'

@@ -30,7 +30,7 @@ export default class CatalogPage extends Component {
             <div className="orders">
                 {Object.keys(this.state.orders).map((e, i) => {
                     return <div className='single-order' key={i}>
-                        <img src={this.state.orders[e].image} className='order-image'></img>
+                        <img src={this.state.orders[e].image} className='order-image' alt={this.state.orders[e].name}></img>
                         <p className='order-name green-text'>{this.state.orders[e].name}</p>
                     </div>
                 })}

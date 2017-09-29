@@ -5,12 +5,13 @@
   "devDependencies": {
     "babel-preset-env": "^1.2.0",
     "nuka-carousel": "^2.0.3",
-    "prop-types": "^15.6.0",
     "react-scripts": "0.9.3"
   },
   "dependencies": {
+    "create-react-class": "^15.6.2",
     "facebook-plugins": "^1.0.5",
     "jquery": "^3.1.1",
+    "prop-types": "^15.6.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-responsive-carousel": "^3.1.3",
