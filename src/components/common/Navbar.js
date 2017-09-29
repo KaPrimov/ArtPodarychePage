@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SearchBox from './SearchBox';
+// import SearchBox from './SearchBox';
 import { withRouter } from 'react-router'
 
 class Navbar extends Component {
@@ -15,17 +15,17 @@ class Navbar extends Component {
 
     onSubmitHandler(event) {
         event.preventDefault();
-        console.log(document.getElementsByClassName('input-search')[0].value)
         this.props.router.push({
             pathname: "/search-results",
             state: {query: document.getElementsByClassName('input-search')[0].value}  
         })
+        window.location.reload()
     }
 
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmitHandler}>
+                <form className='search-input' onSubmit={this.onSubmitHandler}>
                     <input type='text' className='input-search'></input>
                 </form>
                 {this.props.children}

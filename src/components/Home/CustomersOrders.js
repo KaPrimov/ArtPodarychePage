@@ -26,7 +26,6 @@ export default class CatalogPage extends Component {
     }
 
     render() {
-        let products = [];
         return (
             <div className="orders">
                 {Object.keys(this.state.orders).map((e, i) => {
@@ -36,7 +35,7 @@ export default class CatalogPage extends Component {
                     </div>
                 })}
             </div>
-        )
+        );
     }
 
 }

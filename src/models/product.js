@@ -1,4 +1,4 @@
-import {get, post, update} from './requester';
+import {get, post, update, getMatchingProducts} from './requester';
 
 function loadClothes(callback) {
     get('appdata', 'Clothes', 'guestLogin')
@@ -61,5 +61,10 @@ function editProduct(productId, name, images, tags, productype, price, quantity,
         .then(callback(true));
 }
 
+function loadAllProducts(collection, query, callback) {
+    getMatchingProducts('appdata', collection, 'guestLogin', query)
+        .then(callback)    
+}
+
     export {loadClothes, loadJewelry, loadClothesDetails, createProduct, 
-        editProduct, loadDecorations, loadJewelryDetails, loadDecorationsDetails};
+        editProduct, loadDecorations, loadJewelryDetails, loadDecorationsDetails, loadAllProducts};

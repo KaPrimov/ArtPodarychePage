@@ -46,7 +46,6 @@ body {
     display: block;
     margin: 0px;
     padding: 0px;
-    height: 558px;
     width: 1384px;
     cursor: inherit;
     box-sizing: border-box;
@@ -158,14 +157,7 @@ div.single-order img {
     max-width: 350px;
     max-height: 220px;
 }
-@media all and (max-width: 695px) { 
-    div.news {
-        margin-top: 30px;
-    }
-    div.apps-wrapper {
-        margin-top: 30px;
-    }
-}
+
 @media all and (max-width: 575px) {
     h1.home-main-header {
         font-size: 36px;
@@ -186,5 +178,38 @@ div.single-order img {
 
     div.news-wrapper p {
         font-size: 1.1em;
+    }
+}
+
+@media all and (max-width: 655px) { 
+    ul.slider-list {
+        height: 350px!important;
+    }
+}
+
+@media all and (max-width: 695px) { 
+    div.news {
+        margin-top: 30px;
+    }
+    div.apps-wrapper {
+        margin-top: 30px;
+    }
+}
+
+@media all and (max-width: 840px) { 
+    .slider-list {
+        height: 450px!important;
+    }
+}
+
+@media all and (max-width: 460px) { 
+    ul.slider-list {
+        height: 250px!important;
+    }
+}
+
+@media all and (max-width: 340px) { 
+    ul.slider-list, img.carrousel-pic {
+        height: 150px!important;
     }
 }

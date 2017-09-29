@@ -31,7 +31,7 @@ ul.nested-categories li a {
 }
 
 ul.nested-categories {
-    padding-bottom: 40px;
+    padding-bottom: 10px;
 }
 
 div#bottom-categories {
@@ -64,8 +64,10 @@ a.link-page:hover {
 
 .search-input {
     padding: 10px 10px;
-    height: 52px;
-    position: relative;
+    height: 50px;
+    position: relative;    
+    display: inline-block;
+    max-width: 175px;
   }
   
   .search-input::before {
@@ -152,6 +154,12 @@ a.link-page:hover {
     div#bottom-categories a {
         font-size: 1.5em;
     }    
+}
+
+@media all and (max-width: 510px) {
+    .search-input {
+        display: block;
+    }
 }
 
 @media all and (max-width: 455px) {

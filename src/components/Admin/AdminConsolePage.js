@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './AdminConsole.css'
 import AdminConsoleSideBar from './AdminConsoleSideBar'
 import AdminPanel from './AdminPanel'
-import AdminProducts from './AdminProducts'
+// import AdminProducts from './AdminProducts'
 import {getAllUsers} from '../../models/user';
 import {loadProducts } from '../../models/product'
 // import {Link} from 'react-router';

@@ -104,4 +104,16 @@ function deleteItem(module, uri, id, auth) {
 
     return $.ajax(request);
 }
-export {get, post, update, getAllUsers, deleteUser, deleteProduct, deleteItem};
+
+function getMatchingProducts(module, uri, auth, regex) {
+    const kinveyLoginUrl = kinveyBaseUrl + module + "/" + kinveyAppKey + "/" + uri + `?query={"name":{"$regex":"^.*${regex}.*"}}`;
+    const kinveyAuthHeaders = makeAuth(auth);
+
+    return $.ajax({
+        method: "GET",
+        url: kinveyLoginUrl,
+        headers: kinveyAuthHeaders
+    });
+}
+
+export {get, post, update, getAllUsers, deleteUser, deleteProduct, deleteItem, getMatchingProducts};

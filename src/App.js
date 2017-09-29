@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import Navbar from './components/common/Navbar';
-import Infobox from './components/common/Infobox'
+// import Infobox from './components/common/Infobox'
 import Cart from './components/Cart/Cart'
 import './resources/styles/index.css';
 
