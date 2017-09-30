@@ -46,7 +46,7 @@ class App extends Component {
           navbar = (
               <Navbar>
                   <Link to="/faq"  className="link-page">FAQ</Link>
-                  <button onClick={observer.toggle} className="link-page">Количка</button>
+                  <button onClick={observer.toggle} className="link-page">Количка (<span id='cart-products-value'>0</span>)</button>
               </Navbar>
           );
       }

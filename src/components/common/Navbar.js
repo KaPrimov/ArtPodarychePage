@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import SearchBox from './SearchBox';
 import { withRouter } from 'react-router'
 
 class Navbar extends Component {

@@ -7,9 +7,8 @@ export default class SearchBar extends Component {
 
     render() {
         return (
-            <form>
-                <input type="text" name="search" className="search-bar" placeholder="Search..." onChange={this.handleSearch.bind(this)}/>
-            </form>
+            <input type="text" name="search" className="search-bar" placeholder="Search..." onChange={this.handleSearch.bind(this)}/>
+            
         )
     }
 }

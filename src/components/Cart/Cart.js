@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import { loadProductDetails } from '../../models/product';
 import '../../resources/styles/cart.css'
 import observer from '../../models/observer';
+import $ from 'jquery';
+import { withRouter } from 'react-router'
 
-export default class Cart extends Component {
+class Cart extends Component {
     constructor(props) {
         super(props);
         this.state = {
             visible: false,
             activeCart: [],
-            size: ''
+            size: '',
+            productsSizes: {},
+            showButton: false
         };
         this.bindEventHandlers();
         // Register in the observer
@@ -24,7 +28,17 @@ export default class Cart extends Component {
     }
 
     addDetailsToCart(product) {
+        for (let i = 0; i < this.state.activeCart.length; i++) {
+            for (var key in this.state.activeCart[i]) {
+                if (key === product._id) {
+                    if (product.quantity < this.state.activeCart[i][key]['cartQuantity'] + 1) {
+                        return;
+                    }
+                }
+            }
+        }
         let cart = this.state.activeCart;
+        $('#cart-products-value').text(Number($('#cart-products-value').text()) + 1);
         let _id = product._id;
         let data = product;
         product.size = this.state.size;
@@ -34,7 +48,15 @@ export default class Cart extends Component {
             data.cartQuantity = 1;
             cart.push({ [_id]: data });
         }
-        this.setState({ activeCart: cart });
+        let tempSizes = this.state.productsSizes;
+        if (!(_id in tempSizes)) {
+            tempSizes[_id] = []
+        }
+        tempSizes[_id].push(this.state.size)
+        this.setState({
+            activeCart: cart,
+            productsSizes: tempSizes
+        });
     }
 
     addToCart(event) {
@@ -45,10 +67,10 @@ export default class Cart extends Component {
         if (select !== undefined) {
             this.setState({ size: select.options[select.selectedIndex].value })
         } else {
-            this.setState({size: 'One Size'})
+            this.setState({ size: ' - ' })
         }
         loadProductDetails(productId, productType, this.addDetailsToCart);
-        // observer.showSuccess('Product was added!')
+        this.setState({showButton: true})
     }
 
 
@@ -57,32 +79,54 @@ export default class Cart extends Component {
         this.decrease = this.decrease.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.addDetailsToCart = this.addDetailsToCart.bind(this);
+        this.handleOrderClick = this.handleOrderClick.bind(this);
     }
 
     increase(event) {
-        let key = event.target.name;
         let cart = this.state.activeCart;
+        let key = event.target.name;
         let indexOfProduct = cart.findIndex(x => x[key] !== undefined);
         let quantityBeforeClick = cart[indexOfProduct][key].cartQuantity;
         let quantityInWarehouse = cart[indexOfProduct][key].quantity;
         quantityBeforeClick++;
         if (quantityBeforeClick > quantityInWarehouse) return;
+        let tempSizes = this.state.productsSizes;
+        let lastSize = tempSizes[key][tempSizes[key].length - 1];
+        tempSizes[key].push(lastSize);
+        $('#cart-products-value').text(Number($('#cart-products-value').text()) + 1);
         cart[indexOfProduct][key].cartQuantity = quantityBeforeClick;
-        this.setState({ activeCart: cart });
+        this.setState({ activeCart: cart, productsSizes: tempSizes });
     }
 
     decrease(event) {
-        let key = event.target.name;
         let cart = this.state.activeCart;
+        let key = event.target.name;
         let indexOfProduct = cart.findIndex(x => x[key] !== undefined);
         let quantityBeforeClick = cart[indexOfProduct][key].cartQuantity;
         quantityBeforeClick--;
-        if (quantityBeforeClick === 0)
+        if (quantityBeforeClick === 0) {
             cart.splice(indexOfProduct, 1);
-        else cart[indexOfProduct][key].cartQuantity = quantityBeforeClick;
-        this.setState({ activeCart: cart });
+            $('#cart-products-value').text(Number($('#cart-products-value').text()) - 1);
+        }
+        else {
+            cart[indexOfProduct][key].cartQuantity = quantityBeforeClick;
+            $('#cart-products-value').text(Number($('#cart-products-value').text()) - 1);
+        }
+        let tempSizes = this.state.productsSizes;
+        tempSizes[key].pop();
+        this.setState({ activeCart: cart, productsSizes: tempSizes });
+        if (this.state.activeCart.length === 0) {
+            this.setState({showButton: false})
+        }
     }
 
+    handleOrderClick(event) {
+        event.preventDefault();
+        this.props.router.push({
+            pathname: "/cart",
+            state: { products: this.state.activeCart }
+        })
+    }
 
     render() {
         if (!this.state.visible) return null;
@@ -98,14 +142,27 @@ export default class Cart extends Component {
                 <tr key={key}>
                     <td>{product[key].name[0].toUpperCase() + product[key].name.substring(1)}</td>
                     <td><img className="img-cart" src={product[key].image} alt="product"></img></td>
-                    <td>{product[key].price}</td>                    
-                    <td>{product[key].cartQuantity}</td>
+                    <td>{product[key].price}</td>
+                    <td className='quantity-column'>
+                        <a className="minus" name={key} onClick={this.decrease}>- </a>
+                        <div className='quantity-value'>{product[key].cartQuantity}</div>
+                        <a className="plus" name={key} onClick={this.increase}> +</a>
+
+                    </td>
                     <td>
-                        {product[key].size}
-                    </td>                 
+                        {this.state.productsSizes[key].join(', ')}
+                    </td>
                 </tr>)
         }
-
+        let button = '';
+        if (this.state.showButton) {
+            button =
+                <a className='button' onClick={this.handleOrderClick}>
+                    <span>Поръчайте</span>
+                </a>
+        } else {
+            button = ''
+        }
 
         return (
             <div className='cart-wrapper'>
@@ -122,16 +179,16 @@ export default class Cart extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {rows}                        
+                        {rows}
                     </tbody>
                 </table>
                 <div className='cart-data'>
                     <p className='cart-price'>Цена: {price}</p>
-                    <a className='button'>
-                        <span>Купете</span>
-                    </a>
+                    {button}
                 </div>
             </div>
         )
     }
 }
+
+export default withRouter(Cart)

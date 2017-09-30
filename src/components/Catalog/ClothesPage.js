@@ -37,9 +37,9 @@ export default class CatalogPage extends Component {
         $('div #' + id).toggle()
     }
 
-    handleSearch(text) {
+    handleSearch(text, event) {
         this.setState({
-            queryText: text.trim()
+            queryText: text.toLowerCase().trim()
         })
     }
 

@@ -17,6 +17,8 @@ div.cart-wrapper {
 h2.cart-header {
     text-align: center;
     color: #053533;
+    margin-bottom: 5px;
+    font-weight: 700;
 }
 
 thead th {
@@ -127,8 +129,8 @@ div.cart-data {
 
 .button {
     margin-left: 20px;
-    padding: 5px 10px;
-    background: #053533;
+    padding: 5px 10px;    
+    background: #772A32;
     border: 1px solid #772A32;
     border-radius: 20px;
     color: #ffffff;
@@ -137,5 +139,27 @@ div.cart-data {
 
 .button:hover {
     cursor: pointer;
-    background: #772A32;
+    background: #053533;
+}
+
+a.minus, a.plus {
+    font-size: 64px;
+    line-height: 1;
+    text-align: center;
+}
+
+a.minus {
+    color: red;
+}
+
+a.plus {
+    color: rgba(12, 233, 12, 0.6);
+}
+
+div.quantity-value {
+    display: inline-block;
+}
+
+a.minus:hover, a.plus:hover {
+    cursor: pointer;
 }

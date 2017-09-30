@@ -113,7 +113,7 @@ export default class Details extends Component {
                     <div className="spanner quantity">{quantity}</div>
                     <h4 className="heading">Цена:</h4>
                     <div className="spanner quantity">{this.state.price} лв.</div>
-                    <button id="add-to-cart" name={key} onClick={observer.addToCart} datatype='jewelry'><span name={key} datatype='jewelry'>Add to Cart</span>
+                    <button id="add-to-cart" name={key} onClick={observer.addToCart} datatype='jewelry'><span name={key} datatype='jewelry'>Добавете</span>
                     </button>
                 </div>
 
