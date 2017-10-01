@@ -1,5 +1,13 @@
 div.cart-wrapper {
-    transition: opacity 500ms ease-in;
+    position: absolute;
+    bottom: 9999px;
+    opacity: 0;    
+    transition: opacity 1s linear;
+}
+
+div.show-cart {
+    position: static;
+    opacity: 1;
 }
 
 .table .img-cart {

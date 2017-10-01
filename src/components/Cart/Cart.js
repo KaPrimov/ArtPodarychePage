@@ -140,7 +140,10 @@ class Cart extends Component {
     }
 
     render() {
-        if (!this.state.visible) return null;
+        let styles = ['cart-wrapper']
+        if (this.state.visible) {
+            styles.push('show-cart')
+        };
 
         let products = this.state.activeCart;
         let rows = [];
@@ -176,7 +179,7 @@ class Cart extends Component {
         }
 
         return (
-            <div className='cart-wrapper'>
+            <div className={styles.join(' ')}>
                 <h2 className='cart-header'>Какво си харесахте:</h2>
 
                 <table className="table">
@@ -194,7 +197,7 @@ class Cart extends Component {
                     </tbody>
                 </table>
                 <div className='cart-data'>
-                    <p className='cart-price'>Цена: {price}</p>
+                    <p className='cart-price'>Обща сума: {price}лв.</p>
                     {button}
                 </div>
             </div>

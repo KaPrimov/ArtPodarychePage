@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import picture from "../../resources/images/search-pic.jpg";
 import '../../resources/styles/confirmation-styles.css'
 
-export default class CartPage extends Component {
-
-    render() {
-        return(
+const NotFound = () =>
             <div>
                 <div className="title-container">
-                    <h1 className="page-header">Благодарим за поръчката!</h1>
+                    <h1 className="page-header">Страницата не е намерена!</h1>
                 </div>
                 <div id="content-holder">
                     <div className='confrimation-result'>
-                        <h2 className='heading-confirmation green'>Ще се свържем с Вас в рамките на един работен ден за потвърждение на поръчката.</h2>
                         <img alt='confirmation-wreath' src={picture} className='pic-confirmation' />
                     </div>
                 </div>
             </div>
-        )
-    }
-}
+
+export default NotFound;
+    

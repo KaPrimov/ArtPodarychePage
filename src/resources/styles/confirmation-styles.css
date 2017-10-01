@@ -12,3 +12,39 @@ div.confrimation-result {
 div.confrimation-result h2 {
     margin-bottom: 20px;
 }
+
+img.pic-confirmation {
+    max-width: 100%;
+    height: auto;
+}
+
+@media all and (max-width: 710px) {
+    h2.heading-confirmation {
+        font-size: 32px;
+    }
+
+    div#content-holder {
+        padding-left: 5px!important;
+        padding-right: 5px!important;
+    }
+}
+
+@media all and (max-width: 570px) {
+    div.confrimation-result h2 {
+        font-size: 30px;
+    }
+
+    div.title-container {
+        margin-top: 10px; 
+    }
+
+    div.title-container h1.page-header {
+        font-size: 32px;
+        margin-top: 5px ;
+    }
+
+    div#content-holder {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

@@ -18,6 +18,7 @@ import AdminEditPage from './components/Admin/AdminEditPage'
 import FaqPage from './components/FAQ/FAQ'
 import CartPage from './components/Cart/CartPage'
 import ConfirmationPage from './components/common/ConfirmationPage'
+import NotFoundPage from './components/common/NotFoundPage'
 import './resources/styles/index.css';
 import '../node_modules/slick-carousel/slick/slick.css'
 
@@ -43,6 +44,7 @@ ReactDOM.render(
             <Route path="search-results" component={SearchResultPage}/>
             <Route path="cart" component={CartPage}/>
             <Route path="finish-order" component={ConfirmationPage}/>
+            <Route path="*" component={NotFoundPage}/>
         </Route>
     </Router>,
     document.getElementById('root')
