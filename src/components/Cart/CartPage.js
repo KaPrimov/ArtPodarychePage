@@ -71,6 +71,7 @@ class CartPage extends Component {
         this.props.router.push({
             pathname: "/finish-order",
         });
+        window.location.reload();
     }
 
     render() {
