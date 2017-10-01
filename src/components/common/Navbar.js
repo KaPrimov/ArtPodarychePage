@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withRouter } from 'react-router'
+import { withRouter, browserHistory } from 'react-router'
 
 class Navbar extends Component {
 
@@ -14,11 +14,15 @@ class Navbar extends Component {
 
     onSubmitHandler(event) {
         event.preventDefault();
+        let data = document.getElementsByClassName('input-search')[0].value;
+        document.getElementsByClassName('input-search')[0].value = '';
+        browserHistory.push('/search-results');
         this.props.router.push({
             pathname: "/search",
-            state: {query: document.getElementsByClassName('input-search')[0].value}  
-        })
-        window.location.reload()
+            state: {query: data}  
+        });
+        // window.location.reload()
+        
     }
 
     render() {

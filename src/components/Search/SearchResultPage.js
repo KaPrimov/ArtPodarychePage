@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { loadAllProducts } from '../../models/product'
-import Product from '../Catalog/Products'
-import picture from "../../resources/images/search-pic.jpg"
+import { loadAllProducts } from '../../models/product';
+import Product from '../Catalog/Products';
+import picture from "../../resources/images/search-pic.jpg";
 
 export default class SearchResultPage extends Component {
     constructor(props) {
@@ -9,9 +9,10 @@ export default class SearchResultPage extends Component {
         this.state = {
             clothes: [],
             jewelry: [],
-            decorations: []
+            decorations: [],
+            query: ''
         }
-        this.bindEventHandlers()
+        this.bindEventHandlers();
     }
 
     bindEventHandlers() {
@@ -21,6 +22,7 @@ export default class SearchResultPage extends Component {
     }
 
     componentDidMount() {
+        this.setState({query: this.props.location.state.query});
         loadAllProducts('Clothes', this.props.location.state.query, this.onClothesLoadSuccess);
         loadAllProducts('Decorations', this.props.location.state.query, this.onDecorationsLoadSuccess);
         loadAllProducts('jewelry', this.props.location.state.query, this.onJewelryLoadSuccess);
@@ -75,7 +77,7 @@ export default class SearchResultPage extends Component {
                                 price={e.price}
                                 category="clothes"
                             />
-                        })};\
+                        })}
                     </div>
             </div>);
         } else {

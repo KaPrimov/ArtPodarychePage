@@ -2,7 +2,7 @@
 
 body {
     margin: 0 auto;
-    font-family: "Marck Script", sans-serif;
+    font-family: "Marck Script", sans-serif!important;
     font-size: 24px;
     background: url(../images/background.jpg) center;
     background-size: cover;

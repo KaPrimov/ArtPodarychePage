@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "gapi": "registry:dt/gapi#0.0.0+20170224013708"
+  }
+}

@@ -37,22 +37,29 @@ class Cart extends Component {
                 }
             }
         }
+        if (product.boughtProducts === undefined) {
+            product.boughtProducts = [];
+        }
+
         let cart = this.state.activeCart;
         $('#cart-products-value').text(Number($('#cart-products-value').text()) + 1);
         let _id = product._id;
         let data = product;
-        product.size = this.state.size;
         let indexOfProduct = cart.findIndex(x => x[_id] !== undefined);
-        if (indexOfProduct > -1) cart[indexOfProduct][_id].cartQuantity++;
+        if (indexOfProduct > -1) {
+            cart[indexOfProduct][_id].cartQuantity++;
+        } 
         else {
             data.cartQuantity = 1;
             cart.push({ [_id]: data });
         }
+        indexOfProduct = cart.findIndex(x => x[_id] !== undefined);
         let tempSizes = this.state.productsSizes;
         if (!(_id in tempSizes)) {
             tempSizes[_id] = []
         }
         tempSizes[_id].push(this.state.size)
+        cart[indexOfProduct][_id].boughtProducts = tempSizes[_id];
         this.setState({
             activeCart: cart,
             productsSizes: tempSizes
@@ -93,6 +100,7 @@ class Cart extends Component {
         let tempSizes = this.state.productsSizes;
         let lastSize = tempSizes[key][tempSizes[key].length - 1];
         tempSizes[key].push(lastSize);
+        cart[indexOfProduct][key].boughtProducts = tempSizes[key];
         $('#cart-products-value').text(Number($('#cart-products-value').text()) + 1);
         cart[indexOfProduct][key].cartQuantity = quantityBeforeClick;
         this.setState({ activeCart: cart, productsSizes: tempSizes });
@@ -114,6 +122,9 @@ class Cart extends Component {
         }
         let tempSizes = this.state.productsSizes;
         tempSizes[key].pop();
+        if (cart[indexOfProduct] !== undefined) {
+            cart[indexOfProduct][key].boughtProducts = tempSizes[key];
+        }
         this.setState({ activeCart: cart, productsSizes: tempSizes });
         if (this.state.activeCart.length === 0) {
             this.setState({showButton: false})

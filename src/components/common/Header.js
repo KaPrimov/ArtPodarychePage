@@ -8,6 +8,7 @@ export default class Header extends Component {
     render() {
         return (
             <div>
+                <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
                 <nav>
                     <div className="top-navigation">
                         <Link to="/"><img id="logo" src={logo} alt="logo"/></Link>

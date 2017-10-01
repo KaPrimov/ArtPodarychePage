@@ -1,0 +1,14 @@
+div#content-holder {
+    text-align: center!important;
+    display: flex!important;
+    justify-content: center!important;
+}
+
+div.confrimation-result {
+    text-align: center;
+    color: #7A2633
+}
+
+div.confrimation-result h2 {
+    margin-bottom: 20px;
+}
