@@ -3,7 +3,6 @@ import $ from 'jquery';
 import ContactForm from './ContactForm';
 import BoughtProductsList from './BoughtProductsList';
 import '../../resources/styles/bought-products-styles.css';
-import {sendEmail} from '../../models/mail-sender';
 import { withRouter } from 'react-router'
 
 class CartPage extends Component {
@@ -48,7 +47,6 @@ class CartPage extends Component {
         let email = this.state.email;
         let phone = this.state.phone;
         let name = this.state.username;
-        sendEmail(email, phone, name, this.state.cart, this.showSuccess); 
     }
 
     onChangeHandler(event) {

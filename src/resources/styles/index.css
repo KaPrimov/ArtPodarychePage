@@ -2,7 +2,7 @@
 
 body {
     margin: 0 auto;
-    font-family: "Marck Script", sans-serif!important;
+    font-family: "Marck Script", serif!important;
     font-size: 24px;
     background: url(../images/background.jpg) center;
     background-size: cover;
@@ -30,4 +30,8 @@ button {
     -webkit-user-select: none; /* for button */
        -moz-user-select: none;
         -ms-user-select: none;
+}
+
+#toast-container {
+    font-family: Arial, Helvetica, sans-serif;
 }

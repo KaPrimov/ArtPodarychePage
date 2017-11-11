@@ -5,6 +5,7 @@ import '../../resources/styles/details-styles.css';
 import observer from '../../models/observer';
 
 
+
 export default class Details extends Component {
     constructor(props) {
         super(props);
@@ -127,7 +128,7 @@ export default class Details extends Component {
 
             </div>
         )
-    }
+    } 
 }
 
 Details.contextTypes = {

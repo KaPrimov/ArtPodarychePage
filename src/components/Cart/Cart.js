@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { loadProductDetails } from '../../models/product';
+import React, { Component } from 'react'
+import { loadProductDetails } from '../../models/product'
 import '../../resources/styles/cart.css'
-import observer from '../../models/observer';
-import $ from 'jquery';
+import observer from '../../models/observer'
+import $ from 'jquery'
 import { withRouter } from 'react-router'
+import toastr from 'toastr'
 
 class Cart extends Component {
     constructor(props) {
@@ -78,6 +79,7 @@ class Cart extends Component {
         }
         loadProductDetails(productId, productType, this.addDetailsToCart);
         this.setState({showButton: true})
+        toastr.success('Product was added to cart!')
     }
 
 

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 require('create-react-class');
 import HomePage from './components/Home/HomePage';
-import ContactsPage from './components/Contacts/ContactsPage';
 import ClothesPage from './components/Catalog/ClothesPage'
 import JewelryPage from './components/Catalog/JewelryPage'
 import DecorationsPage from './components/Catalog/DecorationsPage'
@@ -21,6 +20,7 @@ import ConfirmationPage from './components/common/ConfirmationPage'
 import NotFoundPage from './components/common/NotFoundPage'
 import './resources/styles/index.css';
 import '../node_modules/slick-carousel/slick/slick.css'
+import '../node_modules/toastr/build/toastr.min.css'
 
 import {IndexRoute, Router, Route, browserHistory} from 'react-router';
 
@@ -34,7 +34,6 @@ ReactDOM.render(
             <Route path='clothes/:productId' component={ClothesDetails}/>
             <Route path='jewelry/:productId' component={JewelryDetails}/>
             <Route path='decorations/:productId' component={DecorationsDetails}/>
-            <Route path='contacts' component={ContactsPage}/>
             <Route path='clothes' component={ClothesPage}/>
             <Route path='jewelry' component={JewelryPage}/>
             <Route path='decorations' component={DecorationsPage}/>
