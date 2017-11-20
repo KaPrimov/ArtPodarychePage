@@ -29,9 +29,6 @@ class App extends Component {
           this.setState({admin: false})
       }
   }
-
-
-
   render() {
       let navbar = {};
       if(this.state.admin){
