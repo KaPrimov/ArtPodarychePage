@@ -4,6 +4,7 @@ import ContactForm from './ContactForm';
 import BoughtProductsList from './BoughtProductsList';
 import '../../resources/styles/bought-products-styles.css';
 import { withRouter } from 'react-router'
+import {sendEmail} from '../../models/mail-sender';
 
 class CartPage extends Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class CartPage extends Component {
         let email = this.state.email;
         let phone = this.state.phone;
         let name = this.state.username;
+        sendEmail(email, phone, name, this.state.cart, this.showSuccess); 
     }
 
     onChangeHandler(event) {
