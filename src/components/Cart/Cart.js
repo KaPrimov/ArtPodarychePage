@@ -79,7 +79,7 @@ class Cart extends Component {
         }
         loadProductDetails(productId, productType, this.addDetailsToCart);
         this.setState({showButton: true})
-        toastr.success('Product was added to the cart!')
+        toastr.success('Продуктът е добавен в количката!')
     }
 
 
