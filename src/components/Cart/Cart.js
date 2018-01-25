@@ -38,6 +38,8 @@ class Cart extends Component {
                 }
             }
         }
+        
+        toastr.success('Продуктът е добавен в количката!')
         if (product.boughtProducts === undefined) {
             product.boughtProducts = [];
         }
@@ -79,7 +81,6 @@ class Cart extends Component {
         }
         loadProductDetails(productId, productType, this.addDetailsToCart);
         this.setState({showButton: true})
-        toastr.success('Продуктът е добавен в количката!')
     }
 
 

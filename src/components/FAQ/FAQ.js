@@ -13,7 +13,7 @@ export default class FAQ extends Component {
                 </article>
                 <article>
                     <h3>Колко струва доставката?</h3>
-                    <p>За София използваме наш доставчик и доставка е безплатна. За останалите градове и държави, можете да пресметнете доставката <a href='http://www.bgpost.bg/bg/calculator'>тук</a>.</p>
+                    <p>За София използваме наш доставчик и доставката е безплатна. За останалите градове и държави можете да пресметнете доставката <a href='http://www.bgpost.bg/bg/calculator'>тук</a>.</p>
                 </article>
             </div>
             <div className='information-wrapper'>            
